@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7ic5sn8xrtcf"]
+
+[ext_resource type="Script" path="res://circle.gd" id="1_55jbd"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_55jbd")
+metadata/_edit_horizontal_guides_ = [20.0]
+metadata/_edit_vertical_guides_ = [10.0]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2

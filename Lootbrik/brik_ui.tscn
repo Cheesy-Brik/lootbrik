@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdnlkqtgbs0so"]
+
+[ext_resource type="Script" path="res://brik_ui.gd" id="1_gkwjc"]
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_xp45g"]
+[ext_resource type="Script" path="res://rarity_color.gd" id="2_n4h7r"]
+[ext_resource type="Texture2D" uid="uid://b5o5n6svijaux" path="res://Briks/brik0.png" id="2_v44i4"]
+[ext_resource type="Script" path="res://brik_getter.gd" id="3_sxl3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huf3a"]
+bg_color = Color(0.270588, 0.270588, 0.333333, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.203922, 0.203922, 0.258824, 1)
+
+[sub_resource type="Gradient" id="Gradient_mqrp3"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.993603, 1)
+colors = PackedColorArray(1, 1, 1, 0.764706, 1, 1, 1, 0.0149254, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qq1kr"]
+gradient = SubResource("Gradient_mqrp3")
+use_hdr = true
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchor_right = 0.260417
+anchor_bottom = 0.462963
+offset_right = -200.0
+offset_bottom = -200.0
+theme = ExtResource("1_xp45g")
+script = ExtResource("1_gkwjc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_huf3a")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+self_modulate = Color(1, 0.882353, 0.486275, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_qq1kr")
+script = ExtResource("2_n4h7r")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+clip_contents = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_v44i4")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_sxl3n")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(75, 75)
+scale = Vector2(7.5, 7.5)

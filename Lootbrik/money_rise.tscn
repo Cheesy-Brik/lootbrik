@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b717qag5lp1nc"]
+
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_6dglx"]
+[ext_resource type="Script" path="res://money_rise.gd" id="1_otaj7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme = ExtResource("1_6dglx")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+scroll_active = false
+text_direction = 2
+script = ExtResource("1_otaj7")

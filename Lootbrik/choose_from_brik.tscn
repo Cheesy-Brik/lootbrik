@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://otjwx5yhqp1r"]
+
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_e1g47"]
+[ext_resource type="Script" path="res://Resource/choose_from_brik.gd" id="2_poeun"]
+[ext_resource type="PackedScene" uid="uid://bdnlkqtgbs0so" path="res://brik_ui.tscn" id="3_64p3h"]
+[ext_resource type="Script" path="res://ui_pick_from.gd" id="4_3cjom"]
+[ext_resource type="AudioStream" uid="uid://buoilhxwfpg6k" path="res://Resource/hover.mp3" id="5_gfj6t"]
+[ext_resource type="Script" path="res://hover_sound.gd" id="6_bk2k0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfege"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cjjl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 0.913725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p82wh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.243137, 0.231373, 0.337255, 1)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e1g47")
+script = ExtResource("2_poeun")
+
+[node name="Control" parent="." instance=ExtResource("3_64p3h")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hfege")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7cjjl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p82wh")
+script = ExtResource("4_3cjom")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gfj6t")
+script = ExtResource("6_bk2k0")
+
+[connection signal="mouse_entered" from="Button" to="AudioStreamPlayer" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="AudioStreamPlayer" method="_on_button_pressed"]

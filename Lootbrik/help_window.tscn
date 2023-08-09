@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxjnyygmwoggt"]
+
+[ext_resource type="Script" path="res://exit_crate.gd" id="1_q2q08"]
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_tkb8p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1ahi"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tkb8p")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+self_modulate = Color(1, 1, 1, 0.223529)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -257.5
+offset_right = 458.0
+offset_bottom = 257.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1ahi")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center][b]The Basics[/b][/center]
+	Your goal is to make money, to make money you sell briks that you get from crates, to buy crates you need money. That's the basic gameplay loop. There are 4 rarities, common, uncommon, rare, and legendary (and there defintely aren't any secret rarities). When you get a brik from a crate it's quality ranges from 1-100. To increase a brik's quality head over to the Polish tab and combine 2 briks of the same type. Their quality will increase, but know that it gets harder to increase a brik's quality the closer it gets to 100%. The most common quality of briks to get range from 40-60%. With lower values and higher values both being equally rare (so 0% is just as rare as 100%). To sell your precicious briks for more money, click on them in the briks tab and then click sell (yes they are sad when you sell them). Prices for briks change after you buy a new brik or sell a brik.
+[center][b]Market Manipulation[/b][/center]
+	To truly get the most of every brik sale you must know how the market works. Higher quality briks sell for more but have more chaotic prices, while lower quality briks sell for less but are more predictable in their price range. Every brik follows an up and down pattern of price. When a brik starts going up it'll usually keep going up for a few price changes (same goes for going down). So it's best to not immediatly sell when a brik's price is going up, but wait too long and you'll lose your chance to make big bucks. Note that there is some randomness in how the price changes so it's best not to bank on your master prediction skills too much. Play it safe or you'll lose all your money and have to start over.
+[center][b]Resetting[/b][/center]
+	Ressetting your save is ok, sometimes you just get unlucky. Simply click the X icon right next to this one and click reset, you'll reset back to 1 free brik and $500 dollars.
+[center][b]Tips[/b][/center]
+	Hover over buttons and briks to get their tooltips. So you don't have to keep going in and out of windows to see names and qualities. If you want to mass buy a certain crate, simply press buy once and then just click space to buy another one. Use the arrow keys to quickly swap between briks. Hover over a graphs points to see the exact price for that point."
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 13.5
+offset_right = 884.0
+offset_bottom = 44.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+text = "X"
+script = ExtResource("1_q2q08")
+metadata/_edit_use_anchors_ = true

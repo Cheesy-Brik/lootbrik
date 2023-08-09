@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxjex5o0wyjqx"]
+
+[ext_resource type="Script" path="res://graph.gd" id="1_f45s0"]
+[ext_resource type="Script" path="res://graph_input.gd" id="1_rqw0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hmml"]
+bg_color = Color(0.180392, 0.207843, 0.235294, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 232.0
+offset_top = 15.0
+offset_right = 232.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_rqw0x")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hmml")
+script = ExtResource("1_f45s0")

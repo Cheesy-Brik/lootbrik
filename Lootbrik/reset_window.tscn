@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfr1gs8ri3vhn"]
+
+[ext_resource type="Script" path="res://exit_crate.gd" id="1_3pb2k"]
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_e47d1"]
+[ext_resource type="Script" path="res://reset.gd" id="2_xc8y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d0ik"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e47d1")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+self_modulate = Color(1, 1, 1, 0.223529)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -257.5
+offset_right = 458.0
+offset_bottom = 257.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6d0ik")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 14.0
+offset_right = -62.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center][b]Reset your save?[/b][/center]
+	You should only do this if you've accidentally soft locked yourself or just want to restart."
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 13.5
+offset_right = 884.0
+offset_bottom = 44.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+text = "X"
+script = ExtResource("1_3pb2k")
+
+[node name="Button2" type="Button" parent="Control/Panel"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -58.5
+offset_right = 93.0
+offset_bottom = -50.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "Reset"
+script = ExtResource("2_xc8y4")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc2sl5xwoaoif"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_c6ds0"]
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_y04wr"]
+[ext_resource type="Texture2D" uid="uid://cj8cq5wwkb6fk" path="res://Resource/crate0.png" id="2_3l4s0"]
+[ext_resource type="Script" path="res://crate_button.gd" id="3_eqpew"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="5_qxfwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yx216"]
+resource_local_to_scene = true
+shader = ExtResource("5_qxfwt")
+shader_parameter/line_color = Color(1, 1, 1, 0)
+shader_parameter/line_thickness = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq7at"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dx4nv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tos4"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y04wr")
+script = ExtResource("1_c6ds0")
+metadata/_edit_horizontal_guides_ = [234.0]
+metadata/_edit_vertical_guides_ = [520.0]
+
+[node name="Button" type="Button" parent="."]
+material = SubResource("ShaderMaterial_yx216")
+layout_mode = 0
+anchor_right = 0.267
+anchor_bottom = 0.36
+offset_right = -171.584
+offset_bottom = -97.28
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qq7at")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dx4nv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tos4")
+icon = ExtResource("2_3l4s0")
+script = ExtResource("3_eqpew")
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]

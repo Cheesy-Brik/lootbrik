@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmkphuhkpy7w3"]
+
+[ext_resource type="Script" path="res://brik_info_button.gd" id="1_0pmqq"]
+[ext_resource type="Theme" uid="uid://cfel3mfyduqo3" path="res://Resource/def.tres" id="1_afv6n"]
+[ext_resource type="Script" path="res://brik_pick.gd" id="2_udk3p"]
+[ext_resource type="PackedScene" uid="uid://bdnlkqtgbs0so" path="res://brik_ui.tscn" id="3_xibfn"]
+[ext_resource type="Texture2D" uid="uid://df5wfoesggysr" path="res://Resource/smudge.png" id="4_054ju"]
+[ext_resource type="Script" path="res://TextureRect.gd" id="5_52ggl"]
+[ext_resource type="AudioStream" uid="uid://buoilhxwfpg6k" path="res://Resource/hover.mp3" id="7_wv3gj"]
+[ext_resource type="Script" path="res://hover_sound.gd" id="8_khj6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv0i1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lnj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 0.913725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oehas"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.243137, 0.231373, 0.337255, 1)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_afv6n")
+script = ExtResource("1_0pmqq")
+
+[node name="Control" parent="." instance=ExtResource("3_xibfn")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+mouse_filter = 2
+texture = ExtResource("4_054ju")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_52ggl")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hv0i1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b2lnj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oehas")
+script = ExtResource("2_udk3p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wv3gj")
+script = ExtResource("8_khj6e")
+
+[connection signal="mouse_entered" from="Button" to="AudioStreamPlayer" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="AudioStreamPlayer" method="_on_button_pressed"]
